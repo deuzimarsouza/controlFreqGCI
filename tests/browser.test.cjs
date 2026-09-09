@@ -15,6 +15,12 @@ const project = path.resolve(__dirname, '..');
     page.on('console', message => { if (message.type() === 'error') errors.push(message.text()); });
     await page.goto('http://127.0.0.1:4173/', { waitUntil: 'networkidle' });
     await page.waitForFunction(() => document.querySelector('#installStatus').textContent === 'Disponível offline');
+    assert.equal(await page.locator('#btnInstallApp, #installHelpDialog').count(), 0);
+    assert.equal(await page.evaluate(() => {
+      const event = new Event('beforeinstallprompt', { cancelable: true });
+      window.dispatchEvent(event);
+      return event.defaultPrevented;
+    }), false, 'The app must leave the browser native installation prompt available');
     assert.equal(await page.locator('#btnExportPdf').isDisabled(), true);
     assert.equal(await page.locator('#reportState').textContent(), 'Aguardando relatório');
     assert.equal(await page.locator('.empty').count(), 5);
@@ -67,13 +73,9 @@ const project = path.resolve(__dirname, '..');
     const fileContext = await browser.newContext();
     const filePage = await fileContext.newPage();
     await filePage.goto(require('node:url').pathToFileURL(path.join(project, 'index.html')).href);
-    await filePage.locator('#btnInstallApp').click();
-    assert.equal(await filePage.locator('#installHelpDialog').isVisible(), true);
-    assert.match(await filePage.locator('#installHelpText').textContent(), /Iniciar-Producao/);
-    await filePage.keyboard.press('Escape');
-    assert.equal(await filePage.locator('#installHelpDialog').isVisible(), false);
+    assert.equal(await filePage.locator('#btnInstallApp, #installHelpDialog').count(), 0);
     await fileContext.close();
-    console.log('PASS: import, totals, exports, 7 viewport widths, manifest, offline, file-mode help, Escape; no unexpected browser errors.');
+    console.log('PASS: import, totals, exports, 7 viewport widths, manifest, offline, no custom install UI in served/file mode, native prompt not canceled; no unexpected browser errors.');
   } finally {
     await browser.close();
   }

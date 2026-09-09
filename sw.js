@@ -1,7 +1,7 @@
 "use strict";
 
 // Change the version whenever an app file changes. Each release is cached as a set.
-const APP_VERSION = "2026-09-07-18";
+const APP_VERSION = "2026-09-07-21";
 const APP_SCOPE = self.registration.scope;
 const CACHE_PREFIX = `producao-gci-${encodeURIComponent(new URL(APP_SCOPE).pathname)}-`;
 const CACHE_NAME = `${CACHE_PREFIX}${APP_VERSION}`;

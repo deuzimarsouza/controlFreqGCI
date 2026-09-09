@@ -25,7 +25,6 @@
           <div class="official-reading"><span>Leitura ARCAB</span><strong id="officialTotal">—</strong></div>
           <button class="btn btn-secondary" id="btnExportPdf" type="button" disabled title="Importe um relatório para exportar"><img class="btn-icon" src="src/document.png" alt="" /><span id="btnExportPdfLabel">Gerar PDF</span></button>
           <button class="btn btn-secondary" id="btnExportExcel" type="button" disabled title="Importe um relatório para exportar"><img class="btn-icon" src="src/file-excel.png" alt="" /><span id="btnExportExcelLabel">Gerar Excel</span></button>
-          <button class="btn btn-install" id="btnInstallApp" type="button"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v10m-4-4 4 4 4-4M5 14v5h14v-5" /></svg><span data-install-label>Instalar aplicativo</span></button>
           <div class="report-actions">
             <input type="file" id="fileInput" accept=".txt,.relatorio,.csv,text/plain" hidden />
             <button class="btn btn-primary" id="btnChooseFile" type="button"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m-4 4 4-4 4 4M4 15v5h16v-5" /></svg><span id="btnChooseFileLabel">Selecionar relatório</span></button>
@@ -58,21 +57,21 @@
           <div class="section-title"><h3 id="olympikusTitle"><span class="category-mark" aria-hidden="true">OL</span>Olympikus</h3><div class="panel-summary"><span class="item-total"><span>Total</span><strong id="generalTableTotal">0</strong></span></div></div>
           <div class="table-wrap" tabindex="0" role="region" aria-label="Itens Olympikus"><table><caption class="sr-only">Produção Olympikus</caption><thead><tr><th scope="col">Artigo</th><th scope="col">Descrição</th><th scope="col">Qtd.</th></tr></thead><tbody id="generalTable"></tbody></table></div>
         </section>
-        <section class="panel injetados-panel" aria-labelledby="injetadosTitle">
-          <div class="section-title"><h3 id="injetadosTitle"><span class="category-mark" aria-hidden="true">IN</span>Injetados</h3><div class="panel-summary"><span class="item-total"><span>Total</span><strong id="specialTableTotal">0</strong></span></div></div>
-          <div class="table-wrap" tabindex="0" role="region" aria-label="Itens Injetados"><table><caption class="sr-only">Produção Injetados</caption><thead><tr><th scope="col">Artigo</th><th scope="col">Descrição</th><th scope="col">Qtd.</th></tr></thead><tbody id="specialTable"></tbody></table></div>
-        </section>
         <section class="panel mizuno-panel" aria-labelledby="mizunoTitle">
           <div class="section-title"><h3 id="mizunoTitle"><span class="category-mark" aria-hidden="true">MZ</span>Mizuno</h3><div class="panel-summary"><span class="item-total"><span>Total</span><strong id="mizunoTableTotal">0</strong></span></div></div>
           <div class="table-wrap" tabindex="0" role="region" aria-label="Itens Mizuno"><table><caption class="sr-only">Produção Mizuno</caption><thead><tr><th scope="col">Artigo</th><th scope="col">Descrição</th><th scope="col">Qtd.</th></tr></thead><tbody id="mizunoTable"></tbody></table></div>
         </section>
-        <section class="panel chuteira-panel" aria-labelledby="chuteiraTitle">
-          <div class="section-title"><h3 id="chuteiraTitle"><span class="category-mark" aria-hidden="true">CH</span>Chuteiras</h3><div class="panel-summary"><span class="item-total"><span>Total</span><strong id="chuteiraTableTotal">0</strong></span></div></div>
-          <div class="table-wrap" tabindex="0" role="region" aria-label="Itens Chuteiras"><table><caption class="sr-only">Produção Chuteiras</caption><thead><tr><th scope="col">Artigo</th><th scope="col">Descrição</th><th scope="col">Qtd.</th></tr></thead><tbody id="chuteiraTable"></tbody></table></div>
-        </section>
         <section class="panel under-panel" aria-labelledby="underTitle">
           <div class="section-title"><h3 id="underTitle"><span class="category-mark" aria-hidden="true">UA</span>Under Armour</h3><div class="panel-summary"><span class="item-total"><span>Total</span><strong id="underArmourTableTotal">0</strong></span></div></div>
           <div class="table-wrap" tabindex="0" role="region" aria-label="Itens Under Armour"><table><caption class="sr-only">Produção Under Armour</caption><thead><tr><th scope="col">Artigo</th><th scope="col">Descrição</th><th scope="col">Qtd.</th></tr></thead><tbody id="underArmourTable"></tbody></table></div>
+        </section>
+        <section class="panel injetados-panel" aria-labelledby="injetadosTitle">
+          <div class="section-title"><h3 id="injetadosTitle"><span class="category-mark" aria-hidden="true">IN</span>Injetados</h3><div class="panel-summary"><span class="item-total"><span>Total</span><strong id="specialTableTotal">0</strong></span></div></div>
+          <div class="table-wrap" tabindex="0" role="region" aria-label="Itens Injetados"><table><caption class="sr-only">Produção Injetados</caption><thead><tr><th scope="col">Artigo</th><th scope="col">Descrição</th><th scope="col">Qtd.</th></tr></thead><tbody id="specialTable"></tbody></table></div>
+        </section>
+        <section class="panel chuteira-panel" aria-labelledby="chuteiraTitle">
+          <div class="section-title"><h3 id="chuteiraTitle"><span class="category-mark" aria-hidden="true">CH</span>Chuteiras</h3><div class="panel-summary"><span class="item-total"><span>Total</span><strong id="chuteiraTableTotal">0</strong></span></div></div>
+          <div class="table-wrap" tabindex="0" role="region" aria-label="Itens Chuteiras"><table><caption class="sr-only">Produção Chuteiras</caption><thead><tr><th scope="col">Artigo</th><th scope="col">Descrição</th><th scope="col">Qtd.</th></tr></thead><tbody id="chuteiraTable"></tbody></table></div>
         </section>
       </div>
     </section>
@@ -82,13 +81,6 @@
   <template id="emptyRowTemplate"><tr><td colspan="3" class="empty"><svg class="empty-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4zM4 9h16M9 9v11" /></svg><strong>Nenhum item nesta categoria</strong><span>Os itens aparecerão após a leitura do relatório.</span></td></tr></template>
   <div id="toastModal" class="toast-modal" role="status" aria-live="polite"><div class="toast-content"><span class="toast-icon" aria-hidden="true">✓</span><span id="toastMessage">Produção calculada com sucesso!</span></div></div>
 
-  <dialog id="installHelpDialog" class="install-dialog" aria-labelledby="installHelpTitle">
-    <div class="dialog-symbol"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h18v13H3zM8 21h8m-4-4v4" /></svg></div>
-    <p class="eyebrow">PRODUÇÃO GCI NO COMPUTADOR</p><h2 id="installHelpTitle">Seu painel, em uma janela própria.</h2>
-    <p id="installHelpText">Abra o aplicativo pelo Chrome ou Microsoft Edge para consultar as opções de instalação.</p>
-    <p class="dialog-note">Os relatórios são processados neste computador. Ao reabrir o aplicativo, selecione novamente o arquivo que deseja consultar.</p>
-    <button id="btnCloseInstallHelp" class="btn btn-primary" type="button" autofocus>Entendi</button>
-  </dialog>
   <script src="vendor/jspdf.umd.min.js"></script>
   <script src="pdf-export.js"></script>
   <script src="script.js"></script>
