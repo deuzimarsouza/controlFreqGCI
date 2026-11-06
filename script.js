@@ -236,6 +236,7 @@ function isMizunoModel(description) {
     normalizedDescription.includes("CABEDAL MIZ ") ||
     normalizedDescription.includes("CAB. MIZUNO") ||
     normalizedDescription.includes("CAB. MIZ.") ||
+    normalizedDescription.includes("CAB MZ ") ||
     normalizedDescription.includes("CAB. MIZ ") ||
     normalizedDescription.includes("CAB WAVE") ||
     normalizedDescription.includes("CABEDAL WAVE") ||
